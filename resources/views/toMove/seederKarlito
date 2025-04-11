@@ -1,0 +1,42 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use App\Models\Admin;
+
+class AdminSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $organizations = [
+            'APSS', 'AVED', 'BACOMMUNITY', 'BPED MOVERS', 'COFED', 'DIGITS',
+            'English Circle', 'EA', 'HRC', 'JSWAP', 'KMF', 'LNU MSS', 'INTERSOC',
+            'TC', 'TLEG TLE', 'SQU', 'ECEO', 'FCO', 'SCO', 'JCO', 'SENCO'
+        ];
+
+        $names = [
+            'John Denver Candasua', 'Jane Doe', 'Michael Smith', 'Emily Johnson',
+            'Chris Evans', 'Sarah Connor', 'David Brown', 'Sophia Martinez',
+            'James Wilson', 'Olivia Garcia', 'Daniel Lee', 'Emma Davis',
+            'Liam Harris', 'Mia Clark', 'Noah Lewis', 'Isabella Walker',
+            'Lucas Hall', 'Ava Allen', 'Ethan Young', 'Charlotte King', 'Mason Wright'
+        ];
+
+        foreach ($organizations as $index => $org) {
+            Admin::firstOrCreate(
+                ['username' => $org],
+                [
+                    'password' => Hash::make(strtolower($org) . '2025'),
+                    'role' => 'admin',
+                    'name' => $names[$index % count($names)], // Assign names in a loop
+                ]
+            );
+        }
+    }
+}
