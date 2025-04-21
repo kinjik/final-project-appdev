@@ -14,26 +14,6 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        // Optional: Clear the table first (for dev only)
-        // DB::table('admins')->truncate();
-
-        // Admin::firstOrCreate(
-        //     ['username' => 'DIGITS'],
-        //     [
-        //         'password' => Hash::make('2201430'),
-        //         'role' => 'admin',
-        //         'name' => 'Kent Jake I. Sanico',
-        //     ]
-        // );
-
-        // Admin::firstOrCreate(
-        //     ['username' => 'JCO'],
-        //     [
-        //         'password' => Hash::make('2201431'),
-        //         'role' => 'admin',
-        //         'name' => 'John Denver Candasua',
-        //     ]
-        // );
         $organizations = [
             'APSS', 'AVED', 'BACOMMUNITY', 'BPED MOVERS', 'COFED', 'DIGITS',
             'English Circle', 'EA', 'HRC', 'JSWAP', 'KMF', 'LNU MSS', 'INTERSOC',

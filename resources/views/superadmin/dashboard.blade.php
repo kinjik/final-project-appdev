@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="d-flex">
-        @include('sidenav')
+        @include('superadmin.sidenav')
 
         <!-- Main content -->
         <div class="main-content flex-grow-1 p-4">
@@ -51,7 +51,7 @@
                         <div class="d-flex align-items-center gap-3">
                             <div></div>
                             <div>
-                               
+
                                 <h3 class="fw-bold org-title mb-1">{{ strtoupper($org->acronym) }}</h3>
                                 <p class="mb-0">{{ $org->full_name }}</p>
                             </div>
@@ -62,9 +62,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 @endforeach
-            </div> 
+            </div>
         </div>
     </div>
 

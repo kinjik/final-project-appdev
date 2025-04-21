@@ -54,10 +54,15 @@ class AuthController extends Controller
                 // Redirect to the appropriate dashboard based on the admin's role
 
             } else {
-                dd('Password is incorrect!');
+                // dd('Invalid Username or Password!');
+                // alert('Invalid Username or Password!');
+                return back()->withErrors(['login' => 'Invalid Username or Password']);
+                // return redirect()->route('login')->withErrors(['login' => 'Invalid credentials']);
             }
         } else {
-            dd('Admin not found!');
+            // dd('Admin not found!');
+            return back()->withErrors(['login' => 'Invalid Username or Password']);
+
         }
 
         // If login fails, redirect back with an error message
