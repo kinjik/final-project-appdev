@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\StudentAuthController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,10 +27,13 @@ Route::middleware(['auth:admin'])->group(function () {
     Route::patch('/admins/{id}', [AdminController::class, 'update'])->name('admins.update');
 
 
+    // Route::get('/student/dashboard', [StudentAuthController::class, 'dashboard'])->name('student.dashboard');
     Route::post('/students/store', [StudentController::class, 'store'])->name('admin.students.store');
     Route::patch('/students/{student}/update', [StudentController::class, 'update'])->name('admin.students.update');
     Route::patch('/students/{student}/transfer', [StudentController::class, 'transfer'])->name('admin.students.transfer');
-
-
 });
+Route::middleware(['auth:student'])->group(function () {
+    Route::get('/student/dashboard', [StudentAuthController::class, 'dashboard'])->name('student.dashboard');
+});
+
 
